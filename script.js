@@ -8,21 +8,21 @@ addTaskBtn.addEventListener("click", () => {
     li.textContent = taskText;
 
     const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "X";
+    deleteBtn.innerText = "ELIMINA";
     deleteBtn.classList.add("delete-btn");
-    deleteBtn.addEventListener("click", function () {
+    deleteBtn.onclick = function () {
       taskList.removeChild(li);
-    });
+    };
 
-    li.appendChild(deleteBtn);
     taskList.appendChild(li);
+    li.appendChild(deleteBtn);
 
     taskInput.value = "";
   }
 });
 
 taskList.addEventListener("click", (event) => {
-  if (event.target.tagName === "LI") {
+  if (event.target.tagName === "li") {
     event.target.classList.toggle("completed");
   }
 });
